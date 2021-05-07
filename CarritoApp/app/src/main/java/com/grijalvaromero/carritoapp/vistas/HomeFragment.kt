@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.grijalvaromero.carritoapp.R
+import com.grijalvaromero.carritoapp.adapters.ProductoAdapter
+import com.grijalvaromero.carritoapp.modelos.Producto
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +40,18 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        var view= inflater.inflate(R.layout.fragment_home, container, false)
+        var recyclerView = view.findViewById<RecyclerView>(R.id.listaPrincipal)
+        //recyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = GridLayoutManager(view.context,2)
+        var productos=ArrayList<Producto>()
+        productos.add(Producto("Olla 1","20.00","defalut.jpg","Descripcion"))
+        productos.add(Producto("Olla 2","20.00","defalut.jpg","Descripcion"))
+        productos.add(Producto("Olla 3","20.00","defalut.jpg","Descripcion"))
+        val adapter = ProductoAdapter(productos)
+        recyclerView.adapter = adapter
+
+        return view
     }
 
     companion object {

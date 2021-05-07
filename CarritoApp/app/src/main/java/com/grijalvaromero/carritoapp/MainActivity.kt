@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
              this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
          drawer_layout.addDrawerListener(toggle)
          toggle.syncState()
+        supportFragmentManager.beginTransaction().replace(R.id.mainContent,HomeFragment()).commit()
 
          nav_view.setNavigationItemSelectedListener(this)
         findViewById<TextView>(R.id.toolbarIndicator).text="20"
@@ -67,7 +68,7 @@ override fun onNavigationItemSelected(item: MenuItem): Boolean {
  // Handle navigation view item clicks here.
  when (item.itemId) {
      R.id.nav_first_fragment -> {
-         supportFragmentManager.beginTransaction().replace(R.id.mainContent,ComprasFragment()).commit()
+         supportFragmentManager.beginTransaction().replace(R.id.mainContent,HomeFragment()).commit()
          setTitle("Import")
      }
      R.id.nav_second_fragment -> {
@@ -75,7 +76,7 @@ override fun onNavigationItemSelected(item: MenuItem): Boolean {
          setTitle("Gallery")
      }
      R.id.nav_third_fragment -> {
-         supportFragmentManager.beginTransaction().replace(R.id.mainContent,HomeFragment()).commit()
+         supportFragmentManager.beginTransaction().replace(R.id.mainContent,ComprasFragment()).commit()
          setTitle("Carrito")
      }
 
