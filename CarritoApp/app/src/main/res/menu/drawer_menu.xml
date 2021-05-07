@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/ic_bag"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/ic_heart"
+            android:title="Favoritos" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/ic_shop"
+            android:title="Compras" />
+
+        <item android:title="Cuenta">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:icon="@drawable/ic_perfil"
+                        android:title="Perfil" />
+                    <item
+                        android:icon="@drawable/ic_config"
+                        android:title="Settings" />
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>
